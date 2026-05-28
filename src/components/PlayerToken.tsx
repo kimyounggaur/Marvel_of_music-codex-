@@ -12,8 +12,8 @@ interface PlayerTokenProps {
 export function PlayerToken({ player, isCurrent, isMoving, offsetIndex, movementTick }: PlayerTokenProps) {
   const style = {
     '--player-color': player.color,
-    '--token-offset-x': `${offsetIndex * 9}px`,
-    '--token-offset-y': `${offsetIndex * 6}px`,
+    '--token-offset-x': `${offsetIndex * 12}px`,
+    '--token-offset-y': `${offsetIndex * 7}px`,
   } as CSSProperties;
 
   return (
