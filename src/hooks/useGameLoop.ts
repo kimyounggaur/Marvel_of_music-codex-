@@ -111,12 +111,6 @@ export function useGameLoop(state: GameState, dispatch: React.Dispatch<GameActio
         return;
       }
 
-      if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        dispatch({ type: 'STEP_FORWARD_START' });
-        return;
-      }
-
       if (event.key === ' ' || event.key === 'Enter') {
         event.preventDefault();
         dispatch({ type: 'ROLL_DICE_START' });

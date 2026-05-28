@@ -38,9 +38,9 @@ export function Board({ cells, players, currentPlayerId, phase, activeEvent, mov
         <div className="center-panel" style={{ gridColumn: '2 / 14', gridRow: '2 / 8' }}>
           <p className="center-kicker">Music Marble</p>
           <ColoredTitle />
-          <p className="center-copy">주사위를 굴리고 한 칸씩 이동하며 악보의 반복·이동 기호를 만나요.</p>
+          <p className="center-copy">주사위를 굴리면 나온 숫자만큼 자동으로 이동하고 악보의 반복·이동 기호를 만나요.</p>
           <div className="center-rules" aria-hidden="true">
-            <span>→ 한 칸</span>
+            <span>자동 이동</span>
             <span>🎲 주사위</span>
             <span>🎵 기호 효과</span>
           </div>

@@ -7,7 +7,6 @@ export type GameAction =
   | { type: 'ROLL_DICE_START' }
   | { type: 'ROLL_DICE_TICK'; value: number }
   | { type: 'ROLL_DICE_COMPLETE'; value: number }
-  | { type: 'STEP_FORWARD_START' }
   | { type: 'MOVE_ONE_STEP_COMPLETE' }
   | { type: 'RESOLVE_EVENT_RESULT'; event: ResolvedEvent }
   | { type: 'APPLY_ACTIVE_EVENT' }
@@ -190,22 +189,14 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       return addLog(
         {
           ...state,
-          phase: 'WAITING_STEP',
+          phase: 'MOVING',
           diceValue: action.value,
           rollingFace: action.value,
           remainingSteps: action.value,
+          movement: createMovement(1, action.value, 'dice'),
         },
-        `🎲 주사위 ${action.value}! ${action.value}칸 이동하세요.`,
+        `🎲 주사위 ${action.value}! ${action.value}칸 자동으로 이동해요.`,
       );
-    case 'STEP_FORWARD_START':
-      if (state.phase !== 'WAITING_STEP' || state.remainingSteps <= 0 || state.learningQueue.length > 0) {
-        return state;
-      }
-      return {
-        ...state,
-        phase: 'MOVING',
-        movement: createMovement(1, 1, 'dice'),
-      };
     case 'MOVE_ONE_STEP_COMPLETE': {
       if (state.phase !== 'MOVING' || !state.movement) return state;
 
@@ -220,10 +211,13 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         position: next,
         laps: completedLap ? player.laps + 1 : player.laps,
       }));
+      const remainingSteps =
+        movement.origin === 'dice' ? Math.max(0, state.remainingSteps - 1) : state.remainingSteps;
       const moved = addLog(
         {
           ...state,
           players,
+          remainingSteps,
           movementTick: state.movementTick + 1,
         },
         `➡️ ${current.name}가 ${next}번 칸으로 이동.`,
@@ -245,12 +239,11 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       }
 
       if (movement.origin === 'dice') {
-        const remainingSteps = Math.max(0, state.remainingSteps - 1);
         return {
           ...moved,
           remainingSteps,
           movement: null,
-          phase: remainingSteps > 0 ? 'WAITING_STEP' : 'RESOLVING_EVENT',
+          phase: 'RESOLVING_EVENT',
           activeEvent: null,
         };
       }

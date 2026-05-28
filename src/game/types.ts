@@ -32,7 +32,6 @@ export interface BoardCell {
 export type GamePhase =
   | 'READY'
   | 'ROLLING'
-  | 'WAITING_STEP'
   | 'MOVING'
   | 'RESOLVING_EVENT'
   | 'SKIPPING'

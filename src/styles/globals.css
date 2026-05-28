@@ -157,8 +157,7 @@ button:disabled {
   color: #fff;
 }
 
-.primary-action,
-.step-action {
+.primary-action {
   display: inline-flex;
   min-height: 50px;
   align-items: center;
@@ -179,19 +178,13 @@ button:disabled {
   background: var(--primary);
 }
 
-.step-action {
-  background: var(--accent);
-}
-
-.primary-action:hover,
-.step-action:hover {
+.primary-action:hover {
   box-shadow: 0 9px 18px rgba(79, 124, 255, 0.22);
   filter: saturate(1.08);
   transform: translateY(-1px);
 }
 
 .primary-action:active,
-.step-action:active,
 .utility-actions button:active {
   transform: translateY(1px);
 }

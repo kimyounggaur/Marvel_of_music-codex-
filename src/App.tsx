@@ -18,10 +18,6 @@ function App() {
     state.phase === 'READY' &&
     state.learningQueue.length === 0 &&
     state.winnerId === null;
-  const canStep =
-    state.phase === 'WAITING_STEP' &&
-    state.remainingSteps > 0 &&
-    state.learningQueue.length === 0;
   const winner = useMemo(
     () => state.players.find((player) => player.id === state.winnerId) ?? null,
     [state.players, state.winnerId],
@@ -71,7 +67,7 @@ function App() {
           ) : (
             <>
               <PlayerStatusBar state={state} />
-              <DicePanel state={state} dispatch={dispatch} canRoll={canRoll} canStep={canStep} />
+              <DicePanel state={state} dispatch={dispatch} canRoll={canRoll} />
               <EventLog logs={state.eventLog} />
             </>
           )}
