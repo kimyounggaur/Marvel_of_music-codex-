@@ -86,7 +86,7 @@ button:disabled {
   position: relative;
   z-index: 0;
   min-height: 100vh;
-  padding: 12px;
+  padding: 6px;
 }
 
 .app-shell::before {
@@ -109,10 +109,10 @@ button:disabled {
 
 .game-layout {
   display: grid;
-  grid-template-columns: minmax(720px, 1fr) minmax(280px, 304px);
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) 248px;
+  gap: 8px;
   align-items: start;
-  max-width: 1680px;
+  max-width: none;
   margin: 0 auto;
 }
 
@@ -123,10 +123,10 @@ button:disabled {
 
 .control-column {
   position: sticky;
-  top: 12px;
+  top: 6px;
   display: grid;
-  gap: 10px;
-  max-height: calc(100vh - 24px);
+  gap: 8px;
+  max-height: calc(100vh - 12px);
 }
 
 .setup-panel,
@@ -143,7 +143,7 @@ button:disabled {
   box-shadow:
     var(--shadow-hard),
     var(--soft-shadow);
-  padding: 12px;
+  padding: 10px;
 }
 
 .setup-panel::before,
@@ -179,7 +179,7 @@ button:disabled {
   align-items: end;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 9px;
+  margin-bottom: 7px;
 }
 
 .section-heading strong {
@@ -272,10 +272,10 @@ button:disabled {
 .player-row {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 8px;
+  gap: 7px;
   align-items: center;
-  min-height: 40px;
-  padding: 7px 8px;
+  min-height: 38px;
+  padding: 7px;
   border: 1px solid rgba(20, 33, 61, 0.1);
   border-radius: 8px;
   background:
@@ -318,16 +318,16 @@ button:disabled {
 
 .dice-panel {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .dice-readout {
   display: grid;
-  grid-template-columns: 78px 1fr;
-  gap: 12px;
+  grid-template-columns: 66px 1fr;
+  gap: 9px;
   align-items: center;
-  min-height: 86px;
-  padding: 8px;
+  min-height: 76px;
+  padding: 7px;
   border: 1px solid rgba(61, 139, 255, 0.16);
   border-radius: 8px;
   background:
@@ -344,8 +344,8 @@ button:disabled {
 
 .dice-cube-shell {
   display: grid;
-  width: 74px;
-  height: 74px;
+  width: 62px;
+  height: 62px;
   place-items: center;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 212, 90, 0.42), rgba(61, 139, 255, 0.08) 58%, transparent 70%);
@@ -353,8 +353,8 @@ button:disabled {
 }
 
 .dice-cube {
-  --dice-size: 58px;
-  --dice-depth: 29px;
+  --dice-size: 50px;
+  --dice-depth: 25px;
   position: relative;
   width: var(--dice-size);
   height: var(--dice-size);
@@ -396,7 +396,7 @@ button:disabled {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  padding: 9px;
+  padding: 8px;
   border: 2px solid rgba(20, 33, 61, 0.16);
   border-radius: 12px;
   background: linear-gradient(145deg, #ffffff 0%, #f7faff 52%, #e8f0ff 100%);
@@ -432,8 +432,8 @@ button:disabled {
 }
 
 .dice-pip {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
   align-self: center;
   justify-self: center;
@@ -475,8 +475,8 @@ button:disabled {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-  min-height: 48px;
-  padding: 9px 11px;
+  min-height: 44px;
+  padding: 8px 10px;
   border: 1px solid rgba(61, 139, 255, 0.2);
   border-radius: 8px;
   background:
@@ -491,7 +491,7 @@ button:disabled {
 
 .remaining-box strong {
   color: #3866ff;
-  font-size: 1.9rem;
+  font-size: 1.72rem;
   line-height: 1;
   text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);
 }
@@ -510,7 +510,7 @@ button:disabled {
 
 .utility-actions button {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 38px;
   align-items: center;
   justify-content: center;
   gap: 7px;
@@ -518,7 +518,7 @@ button:disabled {
 }
 
 .event-log {
-  max-height: calc(100vh - 360px);
+  max-height: calc(100vh - 330px);
   overflow: auto;
   scrollbar-color: rgba(61, 139, 255, 0.4) transparent;
   scrollbar-width: thin;
@@ -724,7 +724,7 @@ button:disabled {
 
 @media (max-width: 1080px) {
   .app-shell {
-    padding: 14px;
+    padding: 10px;
   }
 
   .game-layout {
@@ -734,6 +734,7 @@ button:disabled {
   .control-column {
     position: static;
     max-height: none;
+    gap: 10px;
   }
 
   .dice-panel {
