@@ -141,26 +141,47 @@
     0 0 18px rgba(79, 124, 255, 0.42);
 }
 
+.cell-content {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 2px;
+  min-width: 0;
+  min-height: 0;
+  padding: 5px 4px 6px;
+}
+
 .cell-symbol {
   display: grid;
   place-items: center;
   min-width: 0;
   min-height: 0;
-  padding: 1px 5px;
 }
 
 .cell-symbol img {
   max-width: 72%;
-  max-height: 30px;
+  max-height: 26px;
   object-fit: contain;
 }
 
 .symbol-fallback {
   color: var(--ink);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 950;
   line-height: 1;
   text-align: center;
+}
+
+.cell-korean-name {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 0.58rem;
+  font-weight: 900;
+  line-height: 1.08;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .token-stack {
@@ -310,11 +331,15 @@
   }
 
   .cell-symbol img {
-    max-height: 22px;
+    max-height: 18px;
   }
 
   .symbol-fallback {
-    font-size: 0.86rem;
+    font-size: 0.78rem;
+  }
+
+  .cell-korean-name {
+    font-size: 0.5rem;
   }
 
   .player-token {

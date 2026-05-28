@@ -35,6 +35,7 @@ export function BoardCell({
   const meta = getSymbolMeta(cell.kind);
   const currentHere = players.some((player) => player.id === currentPlayerId);
   const showCellContent = cell.kind !== 'NORMAL';
+  const showKoreanName = cell.kind !== 'START' && meta !== null;
   const className = [
     'board-cell',
     `side-${cell.side}`,
@@ -50,12 +51,15 @@ export function BoardCell({
   return (
     <article className={className} style={style} aria-label={cellTitle(cell)}>
       {showCellContent ? (
-        <div className="cell-symbol" aria-hidden="true">
-          {asset && !assetFailed ? (
-            <img src={asset} alt="" onError={() => setAssetFailed(true)} />
-          ) : (
-            <span className="symbol-fallback">{meta?.fallback ?? cell.label}</span>
-          )}
+        <div className="cell-content" aria-hidden="true">
+          <div className="cell-symbol">
+            {asset && !assetFailed ? (
+              <img src={asset} alt="" onError={() => setAssetFailed(true)} />
+            ) : (
+              <span className="symbol-fallback">{meta?.fallback ?? cell.label}</span>
+            )}
+          </div>
+          {showKoreanName ? <span className="cell-korean-name">{meta.name}</span> : null}
         </div>
       ) : null}
       <div className="token-stack" aria-hidden="true">
