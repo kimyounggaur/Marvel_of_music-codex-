@@ -61,7 +61,6 @@ export function BoardCell({
           <span className="cell-label">{cell.label}</span>
         </>
       ) : null}
-      {cell.markerOnly ? <span className="marker-badge">목표</span> : null}
       <div className="token-stack" aria-hidden="true">
         {players.map((player, index) => (
           <PlayerToken

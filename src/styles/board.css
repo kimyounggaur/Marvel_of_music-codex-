@@ -172,18 +172,6 @@
   white-space: nowrap;
 }
 
-.marker-badge {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  padding: 2px 5px;
-  font-size: 0.58rem;
-  font-weight: 900;
-}
-
 .token-stack {
   position: absolute;
   inset: auto 4px 4px auto;
@@ -327,10 +315,6 @@
 
   .center-copy,
   .center-rules {
-    display: none;
-  }
-
-  .marker-badge {
     display: none;
   }
 
