@@ -24,7 +24,7 @@ export const BOARD: BoardCell[] = [
   { index: 20, kind: 'NORMAL', label: '1', side: 'bottom', isCorner: true },
   { index: 21, kind: 'DAL_SEGNO', label: 'D.S', side: 'bottom' },
   { index: 22, kind: 'CODA', label: '⊕', side: 'bottom', pairId: 'coda', occurrence: 2, markerOnly: true },
-  { index: 23, kind: 'OCTAVE_DOWN', label: '8vb', side: 'bottom' },
+  { index: 23, kind: 'NORMAL', label: '1', side: 'bottom' },
   { index: 24, kind: 'NORMAL', label: '1', side: 'bottom' },
   { index: 25, kind: 'DOUBLE_SEGNO_TRIGGER', label: 'D.S.S', side: 'bottom' },
   { index: 26, kind: 'NORMAL', label: '1', side: 'bottom' },

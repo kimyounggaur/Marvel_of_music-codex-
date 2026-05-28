@@ -170,14 +170,6 @@ export function resolveCellEvent(board: BoardCell[], position: number): Resolved
             kind: cell.kind,
           };
     }
-    case 'OCTAVE_DOWN':
-      return {
-        type: 'MOVE_BACKWARD',
-        sourceIndex: cell.index,
-        steps: 8,
-        animationClass: 'fx-octave-drop',
-        kind: cell.kind,
-      };
     case 'FINE':
       return {
         type: 'GAME_FINISH',

@@ -98,8 +98,6 @@ function eventLogMessage(event: ResolvedEvent): string {
   switch (event.type) {
     case 'MOVE_FORWARD':
       return `🚀 ${event.sourceIndex}번 칸 효과! ${event.steps ?? 0}칸 앞으로 이동해요.`;
-    case 'MOVE_BACKWARD':
-      return `⬇️ 8vb! ${event.steps ?? 0}칸 뒤로 내려가요.`;
     case 'JUMP_TO_INDEX':
       return `✨ ${event.sourceIndex}번 칸에서 ${event.targetIndex}번 칸으로 이동해요.`;
     case 'SKIP_TURNS':
@@ -286,7 +284,7 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         );
       }
 
-      if (event.type === 'MOVE_FORWARD' || event.type === 'MOVE_BACKWARD') {
+      if (event.type === 'MOVE_FORWARD') {
         const steps = Math.max(0, event.steps ?? 0);
         if (steps === 0) return finishTurnWithLog({ ...state, activeEvent: null });
         return {
@@ -294,7 +292,7 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
           activeEvent: null,
           chainDepth: state.chainDepth + 1,
           phase: 'MOVING',
-          movement: createMovement(event.type === 'MOVE_FORWARD' ? 1 : -1, steps, 'event'),
+          movement: createMovement(1, steps, 'event'),
         };
       }
 

@@ -9,8 +9,6 @@ function overlayMessage(event: ResolvedEvent): string {
   switch (event.type) {
     case 'MOVE_FORWARD':
       return `${event.steps ?? 0}칸 앞으로!`;
-    case 'MOVE_BACKWARD':
-      return `${event.steps ?? 0}칸 뒤로!`;
     case 'JUMP_TO_INDEX':
       return `${event.targetIndex}번 칸으로 이동!`;
     case 'SKIP_TURNS':
@@ -32,7 +30,6 @@ function overlayIcon(event: ResolvedEvent): string {
   if (event.animationClass === 'fx-ice-freeze') return '𝄐';
   if (event.animationClass === 'fx-hologram') return '%%';
   if (event.animationClass === 'fx-wormhole') return '⊕⊕';
-  if (event.animationClass === 'fx-octave-drop') return '8vb';
   if (event.animationClass === 'fx-finale') return '🏁';
   return '♪';
 }

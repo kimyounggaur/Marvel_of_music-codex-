@@ -30,7 +30,7 @@ function cellFamily(cell: BoardCellType): string {
     return 'jump';
   }
   if (cell.kind === 'CODA' || cell.kind === 'DOUBLE_CODA') return 'coda';
-  if (cell.kind === 'MULTI_REST' || cell.kind === 'OCTAVE_DOWN' || cell.kind === 'FERMATA') return 'rest';
+  if (cell.kind === 'MULTI_REST' || cell.kind === 'FERMATA') return 'rest';
   return 'normal';
 }
 

@@ -23,7 +23,7 @@ describe('resolveCellEvent', () => {
     expect(resolveCellEvent(BOARD, 28)).toMatchObject({ type: 'JUMP_TO_INDEX', targetIndex: 35 });
     expect(resolveCellEvent(BOARD, 25)).toMatchObject({ type: 'JUMP_TO_INDEX', targetIndex: 28 });
     expect(resolveCellEvent(BOARD, 27)).toMatchObject({ type: 'JUMP_TO_INDEX', targetIndex: 36 });
-    expect(resolveCellEvent(BOARD, 23)).toMatchObject({ type: 'MOVE_BACKWARD', steps: 8 });
+    expect(resolveCellEvent(BOARD, 23)).toMatchObject({ type: 'NONE' });
     expect(resolveCellEvent(BOARD, 38)).toMatchObject({ type: 'GAME_FINISH' });
   });
 

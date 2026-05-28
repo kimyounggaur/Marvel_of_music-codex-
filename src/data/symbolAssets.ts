@@ -10,7 +10,6 @@ const SYMBOL_ASSETS: Partial<Record<CellKind, string>> = {
   FERMATA: withBase('assets/symbols/fermata.png'),
   FIRST_ENDING: withBase('assets/symbols/first-ending.png'),
   SECOND_ENDING: withBase('assets/symbols/second-ending.png'),
-  OCTAVE_DOWN: withBase('assets/symbols/octave-down.png'),
 };
 
 export function getCellAsset(cell: BoardCell): string | null {

@@ -14,7 +14,6 @@ export type CellKind =
   | 'DOUBLE_SEGNO'
   | 'DOUBLE_SEGNO_TRIGGER'
   | 'DOUBLE_CODA'
-  | 'OCTAVE_DOWN'
   | 'FINE';
 
 export interface BoardCell {
@@ -40,7 +39,6 @@ export type GamePhase =
 export type ResolvedEventType =
   | 'NONE'
   | 'MOVE_FORWARD'
-  | 'MOVE_BACKWARD'
   | 'JUMP_TO_INDEX'
   | 'SKIP_TURNS'
   | 'GAME_FINISH';

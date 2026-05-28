@@ -114,14 +114,6 @@ export const SYMBOL_META: Partial<Record<CellKind, SymbolMeta>> = {
     mnemonic: '출구가 두 개라 더 멀리!',
     fallback: '⊕⊕',
   },
-  OCTAVE_DOWN: {
-    name: '옥타브 아래',
-    nameEn: '8vb(Ottava bassa)',
-    meaning: '적힌 음을 한 옥타브 낮게 연주해요.',
-    effect: '8칸 뒤로 이동!',
-    mnemonic: '8vb는 한 옥타브 아래로 뚝!',
-    fallback: '8vb',
-  },
   FINE: {
     name: '피네',
     nameEn: 'Fine',
