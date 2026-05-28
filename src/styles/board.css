@@ -27,7 +27,8 @@
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 232, 0.84)),
-    url('/assets/symbols/board-bg.png');
+    repeating-linear-gradient(90deg, rgba(79, 124, 255, 0.06) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(0deg, rgba(67, 199, 122, 0.06) 0 1px, transparent 1px 24px);
   background-size: cover;
   background-position: center;
   background-blend-mode: screen;
