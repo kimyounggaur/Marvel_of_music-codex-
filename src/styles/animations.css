@@ -1,0 +1,415 @@
+.event-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  background: rgba(36, 48, 71, 0.08);
+  animation: overlay-pop 1120ms ease both;
+}
+
+.fx-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.overlay-card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 280px;
+  max-width: min(88vw, 460px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+  padding: 24px 30px;
+  text-align: center;
+  animation: overlay-card-pop 820ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.overlay-icon {
+  display: grid;
+  min-width: 82px;
+  min-height: 82px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(79, 124, 255, 0.12);
+  color: var(--primary);
+  font-size: 2.6rem;
+  font-weight: 950;
+}
+
+.overlay-card strong {
+  font-size: 1.75rem;
+}
+
+.overlay-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fx-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180px;
+  height: 180px;
+  border: 10px solid rgba(255, 255, 255, 0.42);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ring-one {
+  animation: portal-pulse 900ms ease-out infinite;
+}
+
+.ring-two {
+  animation: portal-pulse 900ms 220ms ease-out infinite;
+}
+
+.fx-spark {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--warning);
+  box-shadow: 0 0 22px currentColor;
+  animation: sparkle-float 1100ms ease-in-out infinite;
+}
+
+.spark-one {
+  left: 18%;
+  top: 26%;
+  color: var(--accent);
+}
+
+.spark-two {
+  right: 22%;
+  top: 22%;
+  color: var(--success);
+  animation-delay: 160ms;
+}
+
+.spark-three {
+  left: 56%;
+  bottom: 18%;
+  color: var(--primary);
+  animation-delay: 310ms;
+}
+
+.fx-rocket-dash {
+  background:
+    linear-gradient(90deg, rgba(255, 92, 138, 0.22), rgba(255, 209, 102, 0.2), rgba(67, 199, 122, 0.18)),
+    rgba(255, 248, 232, 0.72);
+}
+
+.fx-rocket-dash .overlay-card {
+  animation:
+    overlay-card-pop 560ms cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    rocket-dash 900ms ease-in-out both;
+}
+
+.fx-rewind {
+  background: rgba(79, 124, 255, 0.16);
+}
+
+.fx-rewind .fx-ring {
+  border-color: rgba(79, 124, 255, 0.32);
+  animation: rewind-ring 760ms linear infinite;
+}
+
+.fx-segno-fly {
+  background: rgba(67, 199, 122, 0.16);
+}
+
+.fx-segno-fly .overlay-card {
+  animation:
+    overlay-card-pop 520ms ease both,
+    segno-fly 980ms ease-in-out both;
+}
+
+.fx-coda-portal {
+  background: rgba(36, 48, 71, 0.26);
+}
+
+.fx-coda-portal .fx-ring,
+.fx-wormhole .fx-ring {
+  border-color: rgba(141, 107, 255, 0.45);
+  animation: portal-pulse 620ms ease-out infinite;
+}
+
+.fx-coda-portal .overlay-icon,
+.fx-wormhole .overlay-icon {
+  background: rgba(141, 107, 255, 0.14);
+  color: var(--violet);
+}
+
+.fx-spotlight-start {
+  background: radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.95), rgba(36, 48, 71, 0.48));
+}
+
+.fx-spotlight-start .overlay-card {
+  animation:
+    spotlight-drop 900ms ease both,
+    overlay-card-pop 700ms ease both;
+}
+
+.fx-spring-jump {
+  background: rgba(255, 184, 79, 0.18);
+}
+
+.fx-spring-jump .overlay-card {
+  animation: spring-arc 1000ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.fx-ice-freeze {
+  background: rgba(79, 124, 255, 0.18);
+}
+
+.fx-ice-freeze .overlay-card {
+  border-color: rgba(79, 124, 255, 0.35);
+  animation:
+    freeze-glow 920ms ease-in-out infinite,
+    overlay-card-pop 520ms ease both;
+}
+
+.fx-hologram {
+  background: rgba(141, 107, 255, 0.16);
+}
+
+.fx-hologram .overlay-card {
+  animation:
+    hologram-scan 900ms steps(6) both,
+    overlay-card-pop 520ms ease both;
+}
+
+.fx-wormhole {
+  background: rgba(36, 48, 71, 0.32);
+}
+
+.fx-wormhole .fx-layer {
+  animation: wormhole-spin 1000ms linear infinite;
+}
+
+.fx-octave-drop {
+  background: linear-gradient(180deg, rgba(79, 124, 255, 0.1), rgba(36, 48, 71, 0.28));
+}
+
+.fx-octave-drop .overlay-card {
+  animation:
+    octave-drop 900ms ease-in both,
+    overlay-card-pop 500ms ease both;
+}
+
+.fx-finale {
+  background: rgba(255, 209, 102, 0.2);
+}
+
+.fx-finale .fx-spark {
+  width: 8px;
+  height: 20px;
+  border-radius: 3px;
+  animation: confetti-fall 900ms linear infinite;
+}
+
+.fx-finale .overlay-card {
+  border-color: rgba(240, 173, 0, 0.42);
+  animation:
+    finale-shimmer 1050ms ease-in-out infinite,
+    overlay-card-pop 600ms ease both;
+}
+
+@keyframes overlay-pop {
+  0% {
+    opacity: 0;
+  }
+  12%,
+  88% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes overlay-card-pop {
+  0% {
+    transform: scale(0.72);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sparkle-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-18px) scale(1.45);
+    opacity: 1;
+  }
+}
+
+@keyframes portal-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.48);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes rewind-ring {
+  0% {
+    transform: translate(-50%, -50%) rotate(0) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg) scale(1.4);
+  }
+}
+
+@keyframes freeze-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(79, 124, 255, 0);
+    filter: saturate(0.8);
+  }
+  50% {
+    box-shadow: 0 0 42px rgba(79, 124, 255, 0.48);
+    filter: saturate(1.35);
+  }
+}
+
+@keyframes spring-arc {
+  0% {
+    transform: translateY(80px) scale(0.84);
+    opacity: 0;
+  }
+  45% {
+    transform: translateY(-90px) scale(1.08);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes wormhole-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-40px) rotate(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120px) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rocket-dash {
+  0% {
+    transform: translateX(-70px) scale(0.9);
+  }
+  50% {
+    transform: translateX(36px) scale(1.08);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes segno-fly {
+  0% {
+    transform: translate(-60px, 40px) rotate(-12deg);
+  }
+  50% {
+    transform: translate(44px, -54px) rotate(10deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+@keyframes spotlight-drop {
+  0% {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hologram-scan {
+  0% {
+    opacity: 0.1;
+    transform: skewX(-8deg);
+  }
+  30% {
+    opacity: 0.95;
+    transform: skewX(8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: skewX(0);
+  }
+}
+
+@keyframes octave-drop {
+  0% {
+    transform: translateY(-80px) scale(1.08);
+  }
+  100% {
+    transform: translateY(18px) scale(0.96);
+  }
+}
+
+@keyframes finale-shimmer {
+  0%,
+  100% {
+    box-shadow: 0 12px 30px rgba(240, 173, 0, 0.22);
+  }
+  50% {
+    box-shadow: 0 12px 46px rgba(240, 173, 0, 0.44);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-overlay {
+    animation: overlay-pop 300ms ease both;
+  }
+
+  .fx-layer {
+    display: none;
+  }
+
+  .overlay-card {
+    animation: none;
+  }
+}
