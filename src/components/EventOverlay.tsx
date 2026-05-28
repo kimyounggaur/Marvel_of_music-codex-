@@ -54,6 +54,7 @@ export function EventOverlay({ event }: EventOverlayProps) {
       <div className="overlay-card">
         <span className="overlay-icon">{overlayIcon(event)}</span>
         <strong>{meta?.name ?? '이벤트'}</strong>
+        {meta?.nameEn ? <span className="overlay-subtitle">{meta.nameEn}</span> : null}
         <p>{overlayMessage(event)}</p>
       </div>
     </div>

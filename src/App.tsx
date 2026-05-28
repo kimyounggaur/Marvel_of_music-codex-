@@ -29,7 +29,7 @@ function App() {
         <div className="board-column">
           <Board
             cells={BOARD}
-            players={state.players}
+            players={state.setupOpen ? [] : state.players}
             currentPlayerId={state.players[state.currentPlayer]?.id ?? 1}
             phase={state.phase}
             activeEvent={state.activeEvent}

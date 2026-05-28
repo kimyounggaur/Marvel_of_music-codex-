@@ -21,6 +21,19 @@ function cellTitle(cell: BoardCellType): string {
   return `${meta?.name ?? cell.label} 칸`;
 }
 
+function cellFamily(cell: BoardCellType): string {
+  if (cell.kind === 'START' || cell.kind === 'FINE') return 'finish';
+  if (cell.kind === 'REPEAT_START' || cell.kind === 'REPEAT_END' || cell.kind === 'FIRST_ENDING' || cell.kind === 'SECOND_ENDING') {
+    return 'repeat';
+  }
+  if (cell.kind === 'DAL_SEGNO' || cell.kind === 'SEGNO' || cell.kind === 'DA_CAPO' || cell.kind === 'DOUBLE_SEGNO' || cell.kind === 'DOUBLE_SEGNO_TRIGGER') {
+    return 'jump';
+  }
+  if (cell.kind === 'CODA' || cell.kind === 'DOUBLE_CODA') return 'coda';
+  if (cell.kind === 'MULTI_REST' || cell.kind === 'OCTAVE_DOWN' || cell.kind === 'FERMATA') return 'rest';
+  return 'normal';
+}
+
 export function BoardCell({
   cell,
   players,
@@ -39,6 +52,8 @@ export function BoardCell({
   const className = [
     'board-cell',
     `side-${cell.side}`,
+    `kind-${cell.kind.toLowerCase().replace(/_/g, '-')}`,
+    `cell-family-${cellFamily(cell)}`,
     cell.isCorner ? 'corner-cell' : '',
     cell.markerOnly ? 'marker-cell' : '',
     currentHere ? 'current-cell' : '',

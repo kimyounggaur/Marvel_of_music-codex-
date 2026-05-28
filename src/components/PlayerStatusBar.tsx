@@ -9,7 +9,7 @@ export function PlayerStatusBar({ state }: PlayerStatusBarProps) {
 
   return (
     <section className="status-panel" aria-label="플레이어 상태">
-      <div className="section-heading">
+      <div className="section-heading" aria-live="polite">
         <p className="panel-label">현재 턴</p>
         <strong>{current.name}</strong>
       </div>
