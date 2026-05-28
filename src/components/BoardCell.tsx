@@ -16,9 +16,9 @@ interface BoardCellProps {
 
 function cellTitle(cell: BoardCellType): string {
   const meta = getSymbolMeta(cell.kind);
-  if (cell.kind === 'NORMAL') return `${cell.index}번 일반 칸`;
+  if (cell.kind === 'NORMAL') return '일반 칸';
   if (cell.kind === 'START') return 'Start 칸';
-  return `${cell.index}번 ${meta?.name ?? cell.label} 칸`;
+  return `${meta?.name ?? cell.label} 칸`;
 }
 
 export function BoardCell({
@@ -34,6 +34,7 @@ export function BoardCell({
   const asset = getCellAsset(cell);
   const meta = getSymbolMeta(cell.kind);
   const currentHere = players.some((player) => player.id === currentPlayerId);
+  const showCellContent = cell.kind !== 'NORMAL';
   const className = [
     'board-cell',
     `side-${cell.side}`,
@@ -48,15 +49,18 @@ export function BoardCell({
 
   return (
     <article className={className} style={style} aria-label={cellTitle(cell)}>
-      <span className="cell-index">{cell.index}</span>
-      <div className="cell-symbol" aria-hidden="true">
-        {asset && !assetFailed ? (
-          <img src={asset} alt="" onError={() => setAssetFailed(true)} />
-        ) : (
-          <span className="symbol-fallback">{meta?.fallback ?? cell.label}</span>
-        )}
-      </div>
-      <span className="cell-label">{cell.label}</span>
+      {showCellContent ? (
+        <>
+          <div className="cell-symbol" aria-hidden="true">
+            {asset && !assetFailed ? (
+              <img src={asset} alt="" onError={() => setAssetFailed(true)} />
+            ) : (
+              <span className="symbol-fallback">{meta?.fallback ?? cell.label}</span>
+            )}
+          </div>
+          <span className="cell-label">{cell.label}</span>
+        </>
+      ) : null}
       {cell.markerOnly ? <span className="marker-badge">목표</span> : null}
       <div className="token-stack" aria-hidden="true">
         {players.map((player, index) => (

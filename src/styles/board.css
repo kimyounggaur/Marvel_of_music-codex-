@@ -79,7 +79,7 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -139,14 +139,6 @@
   box-shadow:
     0 0 0 4px rgba(79, 124, 255, 0.25),
     0 0 18px rgba(79, 124, 255, 0.42);
-}
-
-.cell-index {
-  align-self: start;
-  padding: 5px 6px 0;
-  color: var(--muted);
-  font-size: 0.66rem;
-  font-weight: 900;
 }
 
 .cell-symbol {
@@ -338,7 +330,6 @@
     display: none;
   }
 
-  .cell-index,
   .marker-badge {
     display: none;
   }
