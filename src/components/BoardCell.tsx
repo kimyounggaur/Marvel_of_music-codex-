@@ -50,16 +50,13 @@ export function BoardCell({
   return (
     <article className={className} style={style} aria-label={cellTitle(cell)}>
       {showCellContent ? (
-        <>
-          <div className="cell-symbol" aria-hidden="true">
-            {asset && !assetFailed ? (
-              <img src={asset} alt="" onError={() => setAssetFailed(true)} />
-            ) : (
-              <span className="symbol-fallback">{meta?.fallback ?? cell.label}</span>
-            )}
-          </div>
-          <span className="cell-label">{cell.label}</span>
-        </>
+        <div className="cell-symbol" aria-hidden="true">
+          {asset && !assetFailed ? (
+            <img src={asset} alt="" onError={() => setAssetFailed(true)} />
+          ) : (
+            <span className="symbol-fallback">{meta?.fallback ?? cell.label}</span>
+          )}
+        </div>
       ) : null}
       <div className="token-stack" aria-hidden="true">
         {players.map((player, index) => (

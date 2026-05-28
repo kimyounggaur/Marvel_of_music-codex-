@@ -79,7 +79,7 @@
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr;
   min-width: 0;
   min-height: 0;
   overflow: hidden;
@@ -161,15 +161,6 @@
   font-weight: 950;
   line-height: 1;
   text-align: center;
-}
-
-.cell-label {
-  padding: 0 5px 6px;
-  color: var(--ink);
-  font-size: 0.74rem;
-  font-weight: 900;
-  text-align: center;
-  white-space: nowrap;
 }
 
 .token-stack {
@@ -324,11 +315,6 @@
 
   .symbol-fallback {
     font-size: 0.86rem;
-  }
-
-  .cell-label {
-    padding-bottom: 3px;
-    font-size: 0.6rem;
   }
 
   .player-token {
