@@ -827,3 +827,49 @@ button:disabled {
     transition-duration: 1ms !important;
   }
 }
+
+/* ───────── 2D ↔ 3D 화면 전환 ───────── */
+
+/* 3D 무대 묶음을 내려받는 동안 보이는 화면 */
+.stage-loading {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  background: linear-gradient(180deg, #4fb0ff 0%, #c9eeff 100%);
+  color: #ffffff;
+  font-family: 'Jua', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size: 20px;
+  text-shadow: 0 2px 0 rgba(20, 33, 61, 0.35);
+}
+
+.view-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  background: var(--panel-solid);
+  box-shadow: var(--shadow-hard);
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.view-switch:active {
+  transform: translateY(2px);
+}
+
+.view-notice {
+  margin: 0 0 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--ink);
+  font-weight: 700;
+}
