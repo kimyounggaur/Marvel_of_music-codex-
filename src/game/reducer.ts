@@ -33,7 +33,7 @@ function makePlayers(count: number): Player[] {
   }));
 }
 
-export function createInitialState(count = 1, setupOpen = true): GameState {
+export function createInitialState(count = 1, setupOpen = true, soundEnabled = true): GameState {
   return {
     players: makePlayers(count),
     currentPlayer: 0,
@@ -52,7 +52,7 @@ export function createInitialState(count = 1, setupOpen = true): GameState {
     setupOpen,
     selectedPlayerCount: count,
     winnerId: null,
-    soundEnabled: false,
+    soundEnabled,
   };
 }
 
@@ -153,7 +153,8 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         selectedPlayerCount: Math.min(4, Math.max(1, action.count)),
       };
     case 'START_GAME': {
-      const nextState = createInitialState(Math.min(4, Math.max(1, action.count)), false);
+      // 소리 설정은 새 게임을 시작해도 그대로 둔다
+      const nextState = createInitialState(Math.min(4, Math.max(1, action.count)), false, state.soundEnabled);
       return addLog(nextState, `🎼 ${action.count}명이 함께 시작해요.`);
     }
     case 'ROLL_DICE_START': {
@@ -356,7 +357,10 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         learningQueue: [],
       };
     case 'RESET_GAME':
-      return addLog(createInitialState(state.selectedPlayerCount, false), '🔄 게임을 다시 시작했어요.');
+      return addLog(
+        createInitialState(state.selectedPlayerCount, false, state.soundEnabled),
+        '🔄 게임을 다시 시작했어요.',
+      );
     case 'TOGGLE_SOUND':
       return {
         ...state,
